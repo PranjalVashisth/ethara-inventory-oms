@@ -27,6 +27,22 @@ Simplified Inventory & Order Management System with:
    - UI: `http://localhost:8080`
    - API: `http://localhost:8000/healthz`
 
+## Run Docker images directly (Docker Hub)
+Backend:
+```bash
+docker run --rm -p 8000:8000 \
+  -e DATABASE_URL="<YOUR_POSTGRES_DATABASE_URL>" \
+  pranjalvashisth/ethara-oms-backend:latest
+```
+
+Frontend (point it to your backend URL):
+```bash
+docker run --rm -p 8080:8080 \
+  -e API_UPSTREAM="http://host.docker.internal:8000" \
+  pranjalvashisth/ethara-oms-frontend:latest
+```
+If your backend is deployed, set `API_UPSTREAM` to the public origin, e.g. `https://your-backend.example.com`.
+
 ## Run locally (without Docker)
 ### Backend
 ```bash
