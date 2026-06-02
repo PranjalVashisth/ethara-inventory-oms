@@ -240,6 +240,8 @@ export function App() {
                 ))}
               </select>
             </div>
+          </div>
+          <div className="row">
             <div className="field field-small">
               <label>Qty</label>
               <input type="number" min={1} value={oQty} onChange={(e) => setOQty(Number(e.target.value))} />
